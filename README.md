@@ -1,3 +1,19 @@
+# IoT based smart Energy management system
+
+This project is about analyzing power usage in real time
+using IoT. We created a website using thingspeak and hosted it
+online using Ngrok. Data is acquired from different sensors and
+processed in Arduino & Raspberry pi.
+
+## Group members
+
+- [@saijyothikumar](mailto:saijyothikumar.s18@iiits.in)
+
+- [@charanreddy](mailto:charanreddy.t18@iiits.in)
+
+## Code links
+
+- [Project_codes](https://drive.google.com/drive/folders/1qY_Tj0fDwJMy6e0F-GDmlmHWtbFn1JxQ?usp=sharing)
 
 ## Table of Contents
 
