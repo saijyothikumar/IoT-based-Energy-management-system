@@ -1,0 +1,33 @@
+
+from django.urls import path,include
+from . import viewsp
+urlpatterns = [
+    path('home',viewsp.home,name='home'),
+    path('addlink',viewsp.addlink,name='addlink'),
+    path('addname',viewsp.addname,name='addname'),
+    path('detail1',viewsp.detail1,name='detail1'),
+    path('detail2',viewsp.detail2,name='detail2'),
+    path('detail3',viewsp.detail3,name='detail3'),
+    path('update',viewsp.update,name='update'),
+    path('son11',viewsp.son11,name='son11'),
+    path('son12',viewsp.son12,name='son12'),
+    path('son21',viewsp.son21,name='son21'),
+    path('son22',viewsp.son22,name='son22'),
+    path('son31',viewsp.son31,name='son31'),
+    path('son32',viewsp.son32,name='son32'),
+    path('soff11',viewsp.soff11,name='soff11'),
+    path('soff12',viewsp.soff12,name='soff12'),
+    path('soff21',viewsp.soff21,name='soff21'),
+    path('soff22',viewsp.soff22,name='soff22'),
+    path('soff31',viewsp.soff31,name='soff31'),
+    path('soff32',viewsp.soff32,name='soff32'),
+    path('temp1',viewsp.temp1,name='temp1'),
+    path('temp2',viewsp.temp2,name='temp2'),
+    path('temp3',viewsp.temp3,name='temp3'),
+    path('int1',viewsp.int1,name='int1'),
+    path('int2',viewsp.int2,name='int2'),
+    path('int3',viewsp.int3,name='int3'),
+    path('controlon',viewsp.controlon,name='controlon'),
+    path('controloff',viewsp.controloff,name='controloff'),
+    path('error',viewsp.error,name='error'),
+]

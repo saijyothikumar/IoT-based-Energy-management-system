@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if error %}
+{{ error }}
+
+<br>
+<br>
+{% endif %}
+<h1 style="text-align:center">add names</h1>
+<form method="POST" action={% url 'addname' %} align="center" enctype="multipart/form-data">
+  {% csrf_token %}
+  room 1 device 1:
+  <br>
+  <input type="text" name="device11"/>
+  <br>
+  room 1 device 2:
+  <br>
+  <input type="text" name="device12"/>
+  <br>
+  room 1 device 3:
+  <br>
+  <input type="text" name="device13"/>
+  <br>
+  room 1 switch 1:
+  <br>
+  <input type="text" name="switch11"/>
+  <br>
+  room 1 switch 2:
+  <br>
+  <input type="text" name="switch12"/>
+  <br>
+  room 2 device 1:
+  <br>
+  <input type="text" name="device21"/>
+  <br>
+  room 2 device 2:
+  <br>
+  <input type="text" name="device22"/>
+  <br>
+  room 2 device 3:
+  <br>
+  <input type="text" name="device23"/>
+  <br>
+  room 2 switch 1:
+  <br>
+  <input type="text" name="switch21"/>
+  <br>
+  room 2 switch 2:
+  <br>
+  <input type="text" name="switch22"/>
+  <br>
+  room 3 device 1:
+  <br>
+  <input type="text" name="device31"/>
+  <br>
+  room 3 device 2:
+  <br>
+  <input type="text" name="device32"/>
+  <br>
+  room 3 device 3:
+  <br>
+  <input type="text" name="device33"/>
+  <br>
+  room 3 switch 1:
+  <br>
+  <input type="text" name="switch31"/>
+  <br>
+  room 3 switch 2:
+  <br>
+  <input type="text" name="switch32"/>
+  <br>
+
+  <br>
+  <input class="btn btn-primary" type="submit" value="submit">
+</form>
+{% endblock%}

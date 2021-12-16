@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <div>
+  <form method="POST" action= {% url 'search' %} align="right">
+    {% csrf_token %}
+    <br>
+    <input type="search" placeholder="Search reviews.." name="search" value="">
+    <select name="dropdown">
+    <option  selected="selected">Latest_reviews</option>
+    <option >Oldest_reviews</option>
+    <option >Oldest_devices</option>
+    <option >Latest_devices</option>
+    <option >Rating</option>
+    <option >Votes</option>
+  </select>
+    <button type="submit"><i class="fa fa-search" type="submit" value="search"></i></button>
+  </div>
+</form>
+<br>
+{% for review in review.all %}
+
+<div class="row pt-3">
+  <div class="col-2" onclick="window.location='{% url 'detail' review.id %}';" style="cursor: pointer;">
+    <img src="{{ review.image.url }}" class="img-fluid" />
+  </div>
+  <div class="col-6" onclick="window.location='{% url 'detail' review.id %}';" style="cursor: pointer;">
+    <h3>{{ review.model }}</h3>
+    <h6>  rating: {{ review.rating }}/5.0</h6>
+    <p>{{ review.summary }}...</p>
+
+  </div>
+  <div class="col-4">
+    <a href="javascript:{document.getElementById('upvote{{ review.id }}').submit()}"><button class="btn btn-primary btn-lg btn-block"><span class="oi oi-caret-top"></span> Upvote {{ review.votes_total }}</button></a>
+  </div>
+</div>
+
+<form id="upvote{{ review.id }}" method="POST" action="{% url 'upvote' review.id %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+{% endfor %}
+{% endblock %}

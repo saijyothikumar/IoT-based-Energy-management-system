@@ -1,0 +1,138 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1 align="center" color="#00FFFF">Data Collection Dashboard</h1>
+<div  align="center">
+  <script >//javascript code
+  c={{product.device31}}+{{product.device32}}+{{product.device33}}
+  document.write("power consumption in room 3= " +c+ "w");//print the result(+ is a concatenate operator)
+  </script>
+</div>
+<br>
+<div id="mydiv" class ="row" style="background-color:rgb(220,220,220)">
+<fieldset style='border:4px double #rgb(220,220,220);border-radious:1px'>
+<legend align='center' style='colour:red'></legend>
+<div align="center">
+  <iframe id="showskill1" width="450" height="260" style="border: 1px solid #cccccc;" src=""></iframe>
+  <script>
+      document.getElementById("showskill1").src ="{{img_linK_1}}";
+  </script>
+  <br>
+  power used by {{device.device31_name}}={{product.device31}}W
+  <script  align="center">//javascript code
+  c={{product.device31}}+{{product.device32}}+{{product.device33}}
+  c1={{product.device31}};
+  if (c1>(c/3)) {
+    document.write("<br>");
+    document.write("this device is consuming very high power");
+  }
+  </script>
+
+</div>
+</fieldset>
+</div>
+<br>
+<div id="mydiv" class ="row" style="background-color:rgb(220,220,220)">
+<fieldset style='border:4px double #rgb(220,220,220);border-radious:1px'>
+<legend align='center' style='colour:red'></legend>
+<div align="center">
+  <iframe id="showskill2" width="450" height="260" style="border: 1px solid #cccccc;" src=""></iframe>
+  <script>
+      document.getElementById("showskill2").src ="{{img_linK_2}}";
+  </script>
+  <br>
+  power used by {{device.device32_name}}={{product.device32}}W
+  <script  align="center">//javascript code
+  c={{product.device31}}+{{product.device32}}+{{product.device33}}
+  c2={{product.device32}};
+  if (c2>(c/3)) {
+    document.write("<br>");
+    document.write("this device is consuming very high power");
+  }
+  </script>
+
+</div>
+</fieldset>
+</div>
+<br>
+<div id="mydiv" class ="row" style="background-color:rgb(220,220,220)">
+<fieldset style='border:4px double #rgb(220,220,220);border-radious:1px'>
+<legend align='center' style='colour:red'></legend>
+<div align="center">
+  <iframe id="showskill3" width="450" height="260" style="border: 1px solid #cccccc;" src=""></iframe>
+  <script>
+      document.getElementById("showskill3").src ="{{img_linK_3}}";
+  </script>
+  <br>
+  power used by {{device.device33_name}}={{product.device33}}W
+  <script  align="center">//javascript code
+  c={{product.device31}}+{{product.device32}}+{{product.device33}}
+  c3={{product.device33}};
+  if (c3>(c/3)) {
+    document.write("<br>");
+    document.write("this device is consuming very high power");
+  }
+  </script>
+</div>
+</fieldset>
+</div>
+<br>
+<div id="mydiv" class ="row" style="background-color:rgb(220,220,220)">
+<fieldset style='border:4px double #rgb(220,220,220);border-radious:1px'>
+<legend align='center' style='colour:red'></legend>
+<div align="center">
+  <iframe id="showskill4" width="450" height="260" style="border: 1px solid #cccccc;" src=""></iframe>
+  <script>
+      document.getElementById("showskill4").src ="{{img_linK_4}}";
+  </script>
+  <br>
+  on and off time of {{device.switch31_name}}
+</div>
+</fieldset>
+</div>
+<br>
+<div id="mydiv" class ="row" style="background-color:rgb(220,220,220)">
+<fieldset style='border:4px double #rgb(220,220,220);border-radious:1px'>
+<legend align='center' style='colour:red'></legend>
+<div align="center">
+  <iframe id="showskill5" width="450" height="260" style="border: 1px solid #cccccc;" src=""></iframe>
+  <script>
+      document.getElementById("showskill5").src ="{{img_linK_5}}";
+  </script>
+  <br>
+  on and off time of {{device.switch32_name}}
+</div>
+</fieldset>
+</div>
+<br>
+<div id="mydiv" class ="row" style="background-color:rgb(220,220,220)">
+<fieldset style='border:4px double #rgb(220,220,220);border-radious:1px'>
+<legend align='center' style='colour:red'></legend>
+<div align="center">
+  <iframe id="showskill6" width="450" height="260" style="border: 1px solid #cccccc;" src="" align="center"></iframe>
+  <script>
+      document.getElementById("showskill6").src ="{{img_linK_6}}";
+  </script>
+  <br>
+  selected temprature of room 1: {{option.option31}}
+</div>
+</fieldset>
+</div>
+<br>
+<div id="mydiv" class ="row" style="background-color:rgb(220,220,220)">
+<fieldset style='border:4px double #rgb(220,220,220);border-radious:1px'>
+<legend align='center' style='colour:red'></legend>
+<div align="center">
+  <iframe id="showskill7" width="450" height="260" style="border: 1px solid #cccccc;" src="" align="center"></iframe>
+  <script>
+      document.getElementById("showskill7").src ="{{img_linK_7}}";
+  </script>
+  <br>
+  light intensity of room 1: {{option.option32}}
+</div>
+</fieldset>
+</div>
+{% endblock%}

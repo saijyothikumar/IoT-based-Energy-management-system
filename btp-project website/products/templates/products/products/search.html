@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if error %}
+{{ error }}
+
+<br>
+<br>
+{% endif %}
+<div >
+
+
+<h1 style="text-align:center">search</h1>
+<form method="POST" action= {% url 'search' %} align="center">
+  {% csrf_token %}
+  search:
+  <br>
+  <input type="text" name="search" value="">
+  <br>
+  <br>
+  <input class="btn btn-primary" type="submit" value="search"/>
+</div>
+{% endblock%}

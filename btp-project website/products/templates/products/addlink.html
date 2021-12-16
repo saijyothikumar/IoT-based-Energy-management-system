@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if error %}
+{{ error }}
+
+<br>
+<br>
+{% endif %}
+<h1 style="text-align:center">add links</h1>
+<form method="POST" action={% url 'addlink' %} align="center" enctype="multipart/form-data">
+  {% csrf_token %}
+  room 1 write feed link:
+  <br>
+  <input type="text" name="room1_upload_link"/>
+  <br>
+  room 1 read feed link:
+  <br>
+  <input type="text" name="room1_download_link"/>
+  <br>
+  room 1 id:
+  <br>
+  <input type="number" name="room1_id" value="">
+  <br>
+  room 2 write feed link:
+  <br>
+  <input type="text" name="room2_upload_link"/>
+  <br>
+  room 2 read feed link:
+  <br>
+  <input type="text" name="room2_download_link"/>
+  <br>
+  room 2 id:
+  <br>
+  <input type="number" name="room2_id" value="">
+  <br>
+  room 3 write feed link:
+  <br>
+  <input type="text" name="room3_upload_link"/>
+  <br>
+  room 3 read feed link:
+  <br>
+  <input type="text" name="room3_download_link"/>
+  <br>
+  room 3 id:
+  <br>
+  <input type="number" name="room3_id" value="">
+  <br>
+  <br>
+  <input class="btn btn-primary" type="submit" value="submit">
+</form>
+{% endblock%}

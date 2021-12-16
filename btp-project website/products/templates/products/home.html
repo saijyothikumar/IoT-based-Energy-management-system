@@ -1,0 +1,299 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if error %}
+{{ error }}
+
+<br>
+<br>
+{% endif %}
+<style>
+
+#mydiv {
+  background-color: lightblue;
+  padding-bottom: 10px;
+
+}
+</style>
+<div class="row" style="background-color:rgb(220,220,220)" align="center">
+<div >
+<br>
+USER NAME = {{product.title}}
+<br>
+LAST UPDATED = {{product.pub_date}}
+<br>
+
+<div>
+</div>
+<br>
+<a href="javascript:{document.getElementById('update').submit()}"><button class="btn btn-primary btn-lg btn-block">update</button></a>
+<br>
+<br>
+</div>
+</div>
+<div class="row" style="background-color:rgb(220,220,220)">
+<p>switch for remote control option :</p>
+<br>
+<div class="col-2">
+    <a href="javascript:{document.getElementById('controlon').submit()}"><button class="btn btn-primary btn-lg btn-block">on</button></a>
+</div>
+<div class="col-2">
+    <a href="javascript:{document.getElementById('controloff').submit()}"><button class="btn btn-primary btn-lg btn-block">off</button></a>
+</div>
+<br>
+<br>
+</div>
+
+<div id="mydiv" class ="row" style="background-color:rgb(220,220,220)">
+<fieldset style='border:4px double #rgb(220,220,220);border-radious:1px'>
+<legend align='center' style='colour:red'></legend>
+<script>
+  c={{option.option13}}
+  if (c==1) {
+      document.write("your remote control option is turned on");
+      document.write("<br>");
+  }else {
+    document.write("your remote control option is turned off");
+    document.write("<br>");
+}
+</script>
+
+<script>//javascript code
+c={{option.option23}};//perform sum operation
+document.write("Total power consumed: " +c+ "w");//print the result(+ is a concatenate operator)
+document.write("<br>");
+</script>
+<script>
+c={{option.option23}};//perform sum operation
+if (c<50) {
+  document.write("you are in slab 1 of power billing");
+  document.write("<br>");
+  document.write("electricity bill: " + c*1+ "Rs");
+}else if (c<100) {
+  document.write("you are in slab 2 of power billing");
+  document.write("<br>");
+  document.write("electricity bill: " + c*2+ "Rs");
+}else if (c<1000) {
+  document.write("you are in slab 3 of power billing");
+  document.write("<br>");
+  document.write("electricity bill: " + c*3+ "Rs");
+}else {
+  document.write("you are in slab 4 of power billing");
+  document.write("<br>");
+  document.write("electricity bill: " + c*4+ "Rs");
+}
+</script>
+</fieldset>
+</div>
+<br>
+
+<br>
+<p style="color:blue;" onclick="window.location='{% url 'detail1' %}';" style="cursor: pointer;">ROOM 1 DATA:</p>
+<div id="mydiv" class ="row" style="background-color:rgb(220,220,220)">
+<fieldset style='border:4px double #rgb(220,220,220);border-radious:1px'>
+<legend align='center' style='colour:red'></legend>
+<script>//javascript code
+c={{product.device11}}+{{product.device12}}+{{product.device13}}+{{product.device21}}+{{product.device22}}+{{product.device23}}+{{product.device31}}+{{product.device32}}+{{product.device33}};//perform sum operation
+c1={{product.device11}}+{{product.device12}}+{{product.device13}}
+document.write("power consumption in room 1= " +c1+ "w");//print the result(+ is a concatenate operator)
+if (c1>(c/3)) {
+  document.write("<br>");
+  document.write("this room is consuming very high power");
+}
+</script>
+<br>
+<div class="row">
+  <div >{{device.switch11_name}} :</div>
+<div class="col-4">
+    <a href="javascript:{document.getElementById('son11').submit()}"><button class="btn btn-primary btn-lg btn-block">on</button></a>
+</div>
+<div class="col-2">
+    <a href="javascript:{document.getElementById('soff11').submit()}"><button class="btn btn-primary btn-lg btn-block">off</button></a>
+<br>
+  </div>
+ </div>
+ <div class="row">
+   <div >{{device.switch12_name}} :</div>
+ <div class="col-4">
+     <a href="javascript:{document.getElementById('son12').submit()}"><button class="btn btn-primary btn-lg btn-block">on</button></a>
+ </div>
+ <div class="col-2">
+     <a href="javascript:{document.getElementById('soff12').submit()}"><button class="btn btn-primary btn-lg btn-block">off</button></a>
+ </div>
+  </div>
+  <form method="POST" action= {% url 'temp1' %} align="left">
+    {% csrf_token %}
+    <br>
+    <input type="number" name="temp1" value="" placeholder="Temperature(Room 1)">
+    <input  type="submit" value="submit"/>
+  <br>
+  </form>
+  <form method="POST" action= {% url 'int1' %} align="left">
+      {% csrf_token %}
+      <br>
+      <input type="number" name="int1" value="" placeholder="Brightness(Room 1)">
+      <input  type="submit" value="submit"/>
+
+</form>
+</fieldset>
+</div>
+<br>
+<p style="color:blue;" onclick="window.location='{% url 'detail2' %}';" style="cursor: pointer;">ROOM 2 DATA:</p>
+<div id="mydiv" class ="row" style="background-color:rgb(220,220,220)">
+<fieldset style='border:4px double #rgb(220,220,220);border-radious:1px'>
+<legend align='center' style='colour:red'></legend>
+<script>//javascript code
+c2={{product.device21}}+{{product.device22}}+{{product.device23}}
+c={{product.device11}}+{{product.device12}}+{{product.device13}}+{{product.device21}}+{{product.device22}}+{{product.device23}}+{{product.device31}}+{{product.device32}}+{{product.device33}};//perform sum operation
+document.write("power consumption in room 2= " +c2+ "w");//print the result(+ is a concatenate operator)
+if (c2>(c/3)) {
+  document.write("<br>");
+  document.write("this room is consuming very high power");}
+</script>
+<br>
+<div class="row">
+  <div >{{device.switch21_name}} :</div>
+<div class="col-4">
+    <a href="javascript:{document.getElementById('son21').submit()}"><button class="btn btn-primary btn-lg btn-block">on</button></a>
+</div>
+<div class="col-2">
+    <a href="javascript:{document.getElementById('soff21').submit()}"><button class="btn btn-primary btn-lg btn-block">off</button></a>
+    <br>
+</div>
+ </div>
+ <div class="row">
+   <div >{{device.switch22_name}} :</div>
+ <div class="col-4">
+     <a href="javascript:{document.getElementById('son22').submit()}"><button class="btn btn-primary btn-lg btn-block">on</button></a>
+ </div>
+ <div class="col-2">
+     <a href="javascript:{document.getElementById('soff22').submit()}"><button class="btn btn-primary btn-lg btn-block">off</button></a>
+     <br>
+ </div>
+  </div>
+  <form method="POST" action= {% url 'temp2' %} align="left">
+    {% csrf_token %}
+    <br>
+    <input type="number" name="temp2" value="" placeholder="Temperature(Room 2)">
+    <input  type="submit" value="submit"/>
+  <br>
+  </form>
+  <form method="POST" action= {% url 'int2' %} align="left">
+      {% csrf_token %}
+      <br>
+      <input type="number" name="int2" value="" placeholder="Brightness(Room 2)">
+      <input  type="submit" value="submit"/>
+      </form>
+</fieldset>
+</div>
+<br>
+<p style="color:blue;" onclick="window.location='{% url 'detail3' %}';" style="cursor: pointer;">ROOM 3 DATA:</p>
+<div id="mydiv" class ="row" style="background-color:rgb(220,220,220)">
+<fieldset style='border:4px double #rgb(220,220,220);border-radious:1px'>
+<legend align='center' style='colour:red'></legend>
+<script>//javascript code
+c3={{product.device31}}+{{product.device32}}+{{product.device33}}
+c={{product.device11}}+{{product.device12}}+{{product.device13}}+{{product.device21}}+{{product.device22}}+{{product.device23}}+{{product.device31}}+{{product.device32}}+{{product.device33}};//perform sum operation
+document.write("power consumption in room 3= " +c3+ "w");//print the result(+ is a concatenate operator)
+if (c3>(c/3)) {
+  document.write("<br>");
+  document.write("this room is consuming very high power");
+}
+</script>
+<br>
+<div class="row">
+  <div >{{device.switch31_name}} :</div>
+<div class="col-4">
+    <a href="javascript:{document.getElementById('son31').submit()}"><button class="btn btn-primary btn-lg btn-block">on</button></a>
+</div>
+<div class="col-2">
+    <a href="javascript:{document.getElementById('soff31').submit()}"><button class="btn btn-primary btn-lg btn-block">off</button></a>
+    <br>
+</div>
+ </div>
+ <div class="row">
+   <div >{{device.switch32_name}} :</div>
+ <div class="col-4">
+     <a href="javascript:{document.getElementById('son32').submit()}"><button class="btn btn-primary btn-lg btn-block">on</button></a>
+ </div>
+ <div class="col-2">
+     <a href="javascript:{document.getElementById('soff32').submit()}"><button class="btn btn-primary btn-lg btn-block">off</button></a>
+     <br>
+ </div>
+  </div>
+  <form method="POST" action= {% url 'temp3' %} align="left">
+    {% csrf_token %}
+    <br>
+
+    <input type="number" name="temp3" value="" placeholder="Temperature(Room 3)">
+    <input  type="submit" value="submit"/>
+    </form>
+  <form method="POST" action= {% url 'int3' %} align="left">
+      {% csrf_token %}
+      <br>
+      <input type="number" name="int3" value="" placeholder="Brightness(Room 1)">
+      <input  type="submit" value="submit"/>
+      </form>
+</fieldset>
+</div>
+<form id="update" method="POST" action="{% url 'update' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="son11" method="POST" action="{% url 'son11' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="soff11" method="POST" action="{% url 'soff11' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="son12" method="POST" action="{% url 'son12' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="soff12" method="POST" action="{% url 'soff12' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="son21" method="POST" action="{% url 'son21' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="soff21" method="POST" action="{% url 'soff21' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="son22" method="POST" action="{% url 'son22' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="soff22" method="POST" action="{% url 'soff22' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="son31" method="POST" action="{% url 'son31' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="soff31" method="POST" action="{% url 'soff31' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="son32" method="POST" action="{% url 'son32' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="soff32" method="POST" action="{% url 'soff32' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="controlon" method="POST" action="{% url 'controlon' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+<form id="controloff" method="POST" action="{% url 'controloff' %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+{% endblock %}

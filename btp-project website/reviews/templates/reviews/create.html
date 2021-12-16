@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+{{ error }}
+<br />
+<br />
+{% endif %}
+
+<h1 style="text-align:center"> write a review </h1>
+<form method="POST" action={% url 'create' %} align="center" enctype="multipart/form-data">
+{% csrf_token %}
+model:
+<br />
+<input type="text" name="model" />
+<br />
+appliance (key word):
+<br />
+<input type="text" name="appliance" />
+<br />
+buy date:
+<br />
+<input type="date" name="buy_date" />
+<br />
+you rating:
+<br />
+<input type="number" value="0" min="0" step=".5" max="5" name="rating" />
+<br />
+Body:
+<br />
+<input type="textbox" name="body" />
+<br />
+Image:
+<br />
+<input type="file" name="image" />
+<br />
+<br />
+<input class="btn btn-primary" type="submit" value="add review" />
+</form>
+
+{% endblock %}
